@@ -1,5 +1,21 @@
-//add everything here
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+// provide sourceCompatibility
+}
+
+repositories {
+    mavenLocal()
+// provide repository, where required dependencies are located
+}
+
+dependencies {
+    implementation ':utils:1.3.5'
+}
 test {
     useJUnitPlatform()
 }
