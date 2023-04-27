@@ -14,6 +14,7 @@ repositories {
 }
 dependencies {
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.8.1')
 }
 publishing {
     publications {
