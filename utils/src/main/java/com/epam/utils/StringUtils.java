@@ -7,6 +7,5 @@ public class StringUtils {
         } else {
             return false;
         }
-         //here magic will happen
     }
 }
