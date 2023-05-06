@@ -5,27 +5,32 @@ plugins {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
+// provide sourceCompatibility
 }
 
 repositories {
     mavenCentral()
+// provide repository, where required dependencies are located
 }
-
 dependencies {
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.9.1')
 }
-
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'com.epam.utils'
+            groupId 'com.example'
             artifactId 'utils'
             version '1.3.5'
+// provide groupId
+// provide artifactId
+// provide version
 
             from components.java
         }
     }
 }
+
 
 jar {
     manifest {
@@ -33,5 +38,12 @@ jar {
                 'Implementation-Title': 'Custom jar utils',
                 'Implementation-Version': '1.3.5'
         )
+        //provide manifest with such attributes as 'Implementation-Title', 'Implementation-Version'
     }
 }
+
+test {
+    useJUnitPlatform()
+}
+
+publishMavenPublicationToMavenLocal {}.mustRunAfter('build')
